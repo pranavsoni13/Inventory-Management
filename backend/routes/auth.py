@@ -19,7 +19,7 @@ def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     if not new_user:
         raise HTTPException(status_code=400, detail="Username already exists")
 
-    return new_user
+    return {"username": new_user.username}
 
 @router.post("/login")
 def login(user: schemas.UserLogin, db: Session = Depends(get_db)):

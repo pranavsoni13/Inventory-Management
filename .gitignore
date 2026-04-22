@@ -1,0 +1,6 @@
+node_modules/
+venv/
+inven/
+__pycache__/
+.env
+inventory.db

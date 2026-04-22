@@ -8,8 +8,9 @@ function ProductList() {
     try {
       const res = await API.get("/products/");
       setProducts(res.data);
-    } catch {
-      alert("Error loading products");
+    } catch (err) {
+        console.log(err);
+        alert("Error loading products");
     }
   };
 

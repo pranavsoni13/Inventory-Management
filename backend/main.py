@@ -12,7 +12,6 @@ app = FastAPI(
 origins = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "*"
 ]
 
 app.add_middleware(
@@ -30,12 +29,10 @@ models.Base.metadata.create_all(bind=database.engine)
 app.include_router(product.router, prefix="/products", tags=["Products"])
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 
-# Root
 @app.get("/")
 def home():
     return {"message": "Inventory API Running 🚀"}
 
-# Health check
 @app.get("/health")
 def health():
     return {"status": "OK"}

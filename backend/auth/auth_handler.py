@@ -16,5 +16,6 @@ def decodeJWT(token: str):
     try:
         decoded = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         return decoded
-    except:
+    except Exception as e:
+        print("JWT Error:", e)   # ✅ debug
         return None

@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Prateek Programming\Projects\Inventory-Management\backend\inven
+set VIRTUAL_ENV=C:\Pranav Programming\Projects\Inventory-project\backend\inven
 
 if not defined PROMPT set PROMPT=$P$G
 

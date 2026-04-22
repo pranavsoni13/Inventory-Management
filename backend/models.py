@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Float
 from database import Base
 
 # Product Table
@@ -8,10 +8,9 @@ class Product(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     quantity = Column(Integer, nullable=False)
-    price = Column(Integer, nullable=False)
+    price = Column(Float, nullable=False)
 
 
-# User Table (for login)
 class User(Base):
     __tablename__ = "users"
 

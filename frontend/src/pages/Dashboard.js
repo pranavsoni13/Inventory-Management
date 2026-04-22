@@ -1,8 +1,18 @@
 import React from "react";
 import AddProduct from "../components/AddProduct";
 import ProductList from "../components/ProductList";
+import { useEffect } from "react";
+
+
 
 function Dashboard() {
+
+  useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "/";
+  }
+}, []);
   const logout = () => {
     localStorage.removeItem("token");
     window.location.href = "/";

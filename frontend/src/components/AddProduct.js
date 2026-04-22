@@ -8,9 +8,12 @@ function AddProduct() {
 
   const handleAdd = async () => {
     try {
-      await API.post("/products/", { name, quantity, price });
+      await API.post("/products/", {
+        name,
+        quantity: parseInt(quantity),
+        price: parseFloat(price),
+     });
       alert("Product Added ✅");
-      window.location.reload();
     } catch {
       alert("Error ❌");
     }
