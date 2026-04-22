@@ -3,8 +3,6 @@ import AddProduct from "../components/AddProduct";
 import ProductList from "../components/ProductList";
 import { useEffect } from "react";
 
-
-
 function Dashboard() {
 
   useEffect(() => {

@@ -8,10 +8,9 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS (React ke liye)
 origins = [
     "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "https://your-app.vercel.app"
 ]
 
 app.add_middleware(

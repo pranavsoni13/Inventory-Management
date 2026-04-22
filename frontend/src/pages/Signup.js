@@ -2,30 +2,30 @@ import React, { useState } from "react";
 import API from "../api";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await API.post("/auth/login", { username, password });
-      localStorage.setItem("token", res.data.access_token);
-      navigate("/dashboard");
-    } catch {
-      alert("Login Failed ❌");
+      await API.post("/auth/signup", { username, password });
+      alert("Signup successful ✅");
+      navigate("/");
+    } catch (err) {
+      alert("Signup failed ❌");
     }
   };
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100">
       <form
-        onSubmit={handleLogin}
+        onSubmit={handleSignup}
         className="bg-white p-6 rounded-2xl shadow-lg w-80"
       >
-        <h2 className="text-xl font-bold mb-4 text-center">Login</h2>
+        <h2 className="text-xl font-bold mb-4 text-center">Signup</h2>
 
         <input
           className="w-full mb-3 p-2 border rounded"
@@ -44,17 +44,18 @@ function Login() {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
         >
-          Login
+          Signup
         </button>
+
         <p className="text-sm mt-3 text-center">
-          Don't have an account?{" "}
+          Already have an account?{" "}
           <span
             className="text-blue-500 cursor-pointer"
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate("/")}
           >
-            Signup
+            Login
           </span>
         </p>
       </form>
@@ -62,4 +63,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
